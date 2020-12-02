@@ -1,6 +1,6 @@
 import java.util.Objects;
 
-public class UniversityFootballlClub {
+public class UniversityFootballClub {
 
     private int ageLimit;
 
@@ -19,7 +19,7 @@ public class UniversityFootballlClub {
 
         if (o == null || getClass() != o.getClass()) return false;
 
-        UniversityFootballlClub that = (UniversityFootballlClub) o;
+        UniversityFootballClub that = (UniversityFootballClub) o;
 
         return ageLimit == that.ageLimit;
     }

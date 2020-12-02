@@ -34,14 +34,14 @@ public class PremierLeagueManager implements LeagueManager {
     @Override
     public void addPlayedMatch(String homeClub, String visitorClub, LocalDate matchDate, int homeScored, int visitorScored) {
 
-
+	/*
         for (LocalDate date : playedMatches.keySet()){
             if (playedMatches.get(date).)
         }
         PlayedMatch playedMatch = new PlayedMatch(premierLeagueClubs.get(homeClub), premierLeagueClubs.get(visitorClub), matchDate);
         playedMatch.setHomeScoredGoals(homeScored);
         playedMatch.setVisitorScoredGoals(visitorScored);
-
+	*/
     }
 
     @Override
@@ -161,7 +161,8 @@ public class PremierLeagueManager implements LeagueManager {
 
     public static void main(String[] args) {
 
-
+	PremierLeagueManager premierLeagueManager = new PremierLeagueManager();
+	premierLeagueManager.mainMenu();
 
 
     }
