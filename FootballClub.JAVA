@@ -1,6 +1,9 @@
-import java.util.Objects;
+import java.io.*;
+import java.util.*;
 
-public class FootballClub extends SportsClub implements Comparable<FootballClub>{
+public class FootballClub extends SportsClub implements Comparable<FootballClub>, Serializable {
+    private static final long serialVersionUID = 1L;
+
     private int wins;
     private int draws;
     private int defeats;
@@ -12,7 +15,7 @@ public class FootballClub extends SportsClub implements Comparable<FootballClub>
     FootballClub(String name, String location){
         super(name, location);
     }
-    
+
     public int getWins() {
         return wins;
     }
@@ -93,24 +96,41 @@ public class FootballClub extends SportsClub implements Comparable<FootballClub>
 
     @Override
     public String toString() {
-        return "FootballClub{" +
-                super.toString() + '\n' +
-                "wins=" + wins +
-                ", draws=" + draws +
-                ", defeats=" + defeats +
-                ", receivedGoals=" + receivedGoals +
-                ", scoredGoals=" + scoredGoals +
-                ", points=" + points +
-                ", playedMatches=" + playedMatches +
-                '}';
+        return  super.toString() +
+                "Points         : " + points + '\n' +
+                "Wins           : " + wins + '\n' +
+                "Draws          : " + draws + '\n' +
+                "Defeats        : " + defeats + '\n' +
+                "Scored Goals   : " + scoredGoals + '\n' +
+                "Received Goals : " + receivedGoals + '\n' +
+                "Matches Played : " + playedMatches + '\n';
     }
 
     @Override
     public int compareTo(FootballClub club) {
         if(this.points == club.getPoints()){
-            return 0;
+
+            int thisGoalDiff = this.scoredGoals - this.receivedGoals;
+            int otherGoalsDiff = club.scoredGoals - club.receivedGoals;
+
+            if (thisGoalDiff == otherGoalsDiff){
+                // Sort by Scored Goals
+                if (this.scoredGoals < club.scoredGoals){
+                    return 1;
+                }else {
+                    return -1;
+                }
+            } else {
+                // Sort by Goal Difference
+                if(thisGoalDiff < otherGoalsDiff){
+                    return 1;
+                }else {
+                    return -1;
+                }
+            }
+
         }
-        else if(this.points < club.getPoints()){
+        else if(this.points < club.getPoints()){    // Sort by Points
             return 1;
         }
         else{

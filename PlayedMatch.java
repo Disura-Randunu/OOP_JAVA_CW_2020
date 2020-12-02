@@ -1,6 +1,8 @@
-import java.time.LocalDate;
+import java.io.*;
+import java.time.*;
 
-public class PlayedMatch {
+public class PlayedMatch implements Serializable {
+    private static final long serialVersionUID = 1L;
 
     private FootballClub homeClub;     // Based on which location where the match takes place
     private FootballClub visitorClub;     // Based on which location where the match takes place
@@ -63,19 +65,19 @@ public class PlayedMatch {
 
     public void calculateStats(){
 
-        // Set Played Matches
+        // Setting Played Matches
         homeClub.setPlayedMatches(homeClub.getPlayedMatches() + 1);
         visitorClub.setPlayedMatches(visitorClub.getPlayedMatches() + 1);
 
-        // Set Scored Goals
+        // Setting Scored Goals
         homeClub.setScoredGoals(homeClub.getScoredGoals() + homeScoredGoals);
         visitorClub.setScoredGoals(visitorClub.getScoredGoals() + visitorScoredGoals);
 
-        // Set Received Goals
+        // Setting Received Goals
         homeClub.setReceivedGoals(homeClub.getReceivedGoals() + visitorScoredGoals);
         visitorClub.setReceivedGoals(visitorClub.getReceivedGoals() + homeScoredGoals);
 
-        // Set Wins/Defeats/Draws/Points
+        // Setting Wins/Defeats/Draws/Points
         if (homeScoredGoals > visitorScoredGoals){
             homeClub.setWins(homeClub.getWins() + 1);
             homeClub.setPoints(homeClub.getPoints() + 3);
@@ -86,7 +88,7 @@ public class PlayedMatch {
             visitorClub.setPoints(visitorClub.getPoints() + 3);
             homeClub.setDefeats(homeClub.getDefeats() + 1);
 
-        } else if (visitorScoredGoals == homeScoredGoals){
+        } else {
             homeClub.setDraws(homeClub.getDraws() + 1);
             homeClub.setPoints(homeClub.getPoints() + 1);
             visitorClub.setDraws(visitorClub.getDraws() + 1);

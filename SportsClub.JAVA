@@ -1,7 +1,8 @@
-import java.util.Objects;
+import java.io.*;
+import java.util.*;
 
-public class SportsClub {
-
+public class SportsClub implements Serializable {
+    private static final long serialVersionUID = 1L;
     private String name;
     private String location;
 
@@ -44,9 +45,7 @@ public class SportsClub {
 
     @Override
     public String toString() {
-        return "SportsClub{" +
-                ", name='" + name + '\'' +
-                ", location='" + location + '\'' +
-                '}';
+        return  "Name           : " + name + '\n' +
+                "Location       : " + location + '\n';
     }
 }
