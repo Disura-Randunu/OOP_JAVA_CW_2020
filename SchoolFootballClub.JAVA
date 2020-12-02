@@ -1,35 +1,27 @@
 import java.util.Objects;
 
-public class SchoolFootballClub 
-{
+public class SchoolFootballClub {
 
-    	private int ageCategory;
+    private int ageCategory;
 
-    	public int getAgeCategory() 
-	{
-        	return ageCategory;
-    	}
+    public int getAgeCategory() {
+        return ageCategory;
+    }
 
-    	public void setAgeCategory(int ageCategory) 
-	{
-        	this.ageCategory = ageCategory;
-    	}
+    public void setAgeCategory(int ageCategory) {
+        this.ageCategory = ageCategory;
+    }
 
-   	@Override
-    	public boolean equals(Object o) 
-	{
-        	if (this == o) return true;
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        SchoolFootballClub that = (SchoolFootballClub) o;
+        return ageCategory == that.ageCategory;
+    }
 
-        	if (o == null || getClass() != o.getClass()) return false;
-
-        	SchoolFootballClub that = (SchoolFootballClub) o;
-
-        	return ageCategory == that.ageCategory;
-    	}
-
-    	@Override
-    	public int hashCode() 
-	{
-        	return Objects.hash(ageCategory);
-    	}
+    @Override
+    public int hashCode() {
+        return Objects.hash(ageCategory);
+    }
 }

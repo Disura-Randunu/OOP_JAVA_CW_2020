@@ -1,7 +1,6 @@
 import java.util.Objects;
 
 public class FootballClub extends SportsClub implements Comparable<FootballClub>{
-
     private int wins;
     private int draws;
     private int defeats;
@@ -10,6 +9,10 @@ public class FootballClub extends SportsClub implements Comparable<FootballClub>
     private int points;
     private int playedMatches;
 
+    FootballClub(String name, String location){
+        super(name, location);
+    }
+    
     public int getWins() {
         return wins;
     }
@@ -104,13 +107,10 @@ public class FootballClub extends SportsClub implements Comparable<FootballClub>
 
     @Override
     public int compareTo(FootballClub club) {
-	
-	// Have to implement the Equal option (When points are equal, sort by goal diff) 
-        
-	if(points == club.getPoints()){
+        if(this.points == club.getPoints()){
             return 0;
         }
-        else if(points < club.getPoints()){
+        else if(this.points < club.getPoints()){
             return 1;
         }
         else{

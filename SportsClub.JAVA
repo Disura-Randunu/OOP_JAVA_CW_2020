@@ -2,16 +2,12 @@ import java.util.Objects;
 
 public class SportsClub {
 
-    private int id;
     private String name;
     private String location;
 
-    public int getId() {
-        return id;
-    }
-
-    public void setId(int id) {
-        this.id = id;
+    SportsClub(String name, String location){
+        this.name = name;
+        this.location = location;
     }
 
     public String getName() {
@@ -38,18 +34,17 @@ public class SportsClub {
 
         SportsClub that = (SportsClub) sportsClub;
 
-        return id == that.id && Objects.equals(name, that.name) && Objects.equals(location, that.location);
+        return Objects.equals(name, that.name) && Objects.equals(location, that.location);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, name, location);
+        return Objects.hash(name, location);
     }
 
     @Override
     public String toString() {
         return "SportsClub{" +
-                "id=" + id +
                 ", name='" + name + '\'' +
                 ", location='" + location + '\'' +
                 '}';
